@@ -1,0 +1,5 @@
+.next
+.git
+.github
+node_modules
+renovate.json
