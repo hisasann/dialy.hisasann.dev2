@@ -1,8 +1,8 @@
-import Link from 'next/link'
-import BLOG from '@/blog.config'
-import formatDate from '@/lib/date/formatDate'
+import Link from 'next/link';
 
-const BlogPost = ({ post }) => {
+import BLOG from '@/blog.config';
+
+const BlogPost = ({ post }: { post: any }) => {
   return (
     <Link href={`${BLOG.path}/${post.slug}`}>
       <article key={post.id} className="mb-6 md:mb-8">
@@ -18,7 +18,7 @@ const BlogPost = ({ post }) => {
         </main>
       </article>
     </Link>
-  )
-}
+  );
+};
 
-export default BlogPost
+export default BlogPost;

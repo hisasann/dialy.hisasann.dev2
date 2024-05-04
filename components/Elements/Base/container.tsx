@@ -1,16 +1,27 @@
-import Header from '@/components/Layouts/header'
-import Footer from '@/components/Layouts/footer'
-import BLOG from '@/blog.config'
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+
+import BLOG from '@/blog.config';
+import Footer from '@/components/Layouts/footer';
+import Header from '@/components/Layouts/header';
+
+import type { ReactNode } from 'react';
+
 // import BlogPost from './BlogPost'
 
-const Container = ({ children, layout, fullWidth, ...customMeta }) => {
-  const url = BLOG.path.length ? `${BLOG.link}/${BLOG.path}` : BLOG.link
+const Container = ({
+  children,
+  layout,
+  fullWidth,
+}: {
+  children: ReactNode;
+  layout: string | null;
+  fullWidth: boolean;
+}) => {
+  const url = BLOG.path.length ? `${BLOG.link}/${BLOG.path}` : BLOG.link;
   const meta = {
     title: BLOG.title,
     type: 'website',
-    ...customMeta
-  }
+  };
   return (
     <div>
       <div
@@ -32,11 +43,11 @@ const Container = ({ children, layout, fullWidth, ...customMeta }) => {
         <Footer fullWidth={fullWidth} />
       </div>
     </div>
-  )
-}
+  );
+};
 
 Container.propTypes = {
-  children: PropTypes.node
-}
+  children: PropTypes.node,
+};
 
-export default Container
+export default Container;

@@ -1,8 +1,8 @@
-import BLOG from '@/blog.config'
-const Footer = ({ fullWidth }) => {
-  const d = new Date()
-  const y = d.getFullYear()
-  const from = +BLOG.since
+import BLOG from '@/blog.config';
+const Footer = ({ fullWidth }: { fullWidth: boolean }) => {
+  const d = new Date();
+  const y = d.getFullYear();
+  const from = +BLOG.since;
   return (
     <div
       className={`mt-6 flex-shrink-0 m-auto w-full text-gray-500 dark:text-gray-400 transition-all ${
@@ -18,7 +18,7 @@ const Footer = ({ fullWidth }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

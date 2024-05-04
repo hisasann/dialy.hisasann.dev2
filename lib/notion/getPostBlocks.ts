@@ -1,9 +1,10 @@
-import BLOG from '@/blog.config'
-import { NotionAPI } from 'notion-client'
+import { NotionAPI } from 'notion-client';
 
-export async function getPostBlocks (id) {
-  const authToken = BLOG.notionAccessToken || null
-  const api = new NotionAPI({ authToken })
-  const pageBlock = await api.getPage(id)
-  return pageBlock
+import BLOG from '@/blog.config';
+
+export async function getPostBlocks(id: string) {
+  const authToken = BLOG.notionAccessToken || undefined;
+  const api = new NotionAPI({ authToken });
+  const pageBlock = await api.getPage(id);
+  return pageBlock;
 }
