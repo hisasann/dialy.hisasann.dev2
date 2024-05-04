@@ -1,6 +1,7 @@
 import BLOG from '@/blog.config';
 import Container from '@/components/Elements/Base/container';
 import BlogPost from '@/components/Elements/Blog/blog-post';
+import Pagination from '@/components/Layouts/pagination';
 import { getAllPosts } from '@/lib/notion/getAllPosts';
 
 /**
@@ -51,7 +52,7 @@ export default async function Home() {
       {postsToShow.map((post: any) => (
         <BlogPost key={post.id} post={post} />
       ))}
-      {/*{showNext && <Pagination page={page} showNext={showNext} />}*/}
+      {showNext && <Pagination page={page} showNext={showNext} />}
     </Container>
     // </main>
   );

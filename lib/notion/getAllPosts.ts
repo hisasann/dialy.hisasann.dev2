@@ -42,7 +42,6 @@ export async function getAllPosts({
   const response = await api.getPage(id);
 
   id = idToUuid(id);
-  console.log('id:', id);
   const collection = Object.values(response.collection)[0]?.value;
   const collectionQuery = response.collection_query;
   // '035e9949-a6cc-4692-9fb6-8c37a080dda2': {
