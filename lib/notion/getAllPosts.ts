@@ -31,10 +31,7 @@ type Properties = {
   fullWidth?: boolean;
 };
 
-/**
- * @param {{ includePages: boolean }} - false: posts only / true: include pages
- */
-export async function getAllPosts({ includePages = false }) {
+export async function getAllPosts({ includePages = false }: { includePages: boolean; }) {
   let id = BLOG.notionPageId || '';
   const authToken = BLOG.notionAccessToken || undefined;
   const api = new NotionAPI({ authToken });
