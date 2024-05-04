@@ -16,6 +16,11 @@
   }
 }
 
+html {
+  --scrollbarBG: #ffffff00;
+  --thumbBG: #b8b8b8;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -29,5 +34,53 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.sticky-nav {
+  position: sticky;
+  z-index: 10;
+  top: -1px;
+  backdrop-filter: blur(5px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0, 1);
+  border-bottom-color: transparent;
+}
+
+.remove-sticky {
+  position: unset;
+}
+
+.sticky-nav-full {
+  @apply border-b border-opacity-50 border-gray-200 dark:border-gray-600 dark:border-opacity-50;
+}
+
+@media (min-width: 768px) {
+  .sticky-nav-full {
+    @apply max-w-full border-b border-opacity-50 border-gray-200 dark:border-gray-600 dark:border-opacity-50;
+  }
+  .header-name {
+    display: block;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0, 1);
+  }
+  .sticky-nav-full .header-name {
+    opacity: 1;
+    @apply dark:text-gray-300 text-gray-600;
+  }
+}
+
+@supports not (backdrop-filter: none) {
+  .sticky-nav {
+    backdrop-filter: none;
+    @apply bg-opacity-90;
   }
 }

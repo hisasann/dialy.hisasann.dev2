@@ -31,7 +31,11 @@ type Properties = {
   fullWidth?: boolean;
 };
 
-export async function getAllPosts({ includePages = false }: { includePages: boolean; }) {
+export async function getAllPosts({
+  includePages = false,
+}: {
+  includePages: boolean;
+}) {
   let id = BLOG.notionPageId || '';
   const authToken = BLOG.notionAccessToken || undefined;
   const api = new NotionAPI({ authToken });

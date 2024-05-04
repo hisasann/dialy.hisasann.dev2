@@ -36,13 +36,13 @@ export default async function Home() {
   const { page, postsToShow, showNext } = await getPosts();
 
   return (
-    <main className="flex min-h-screen flex-col items-start justify-between p-24">
-      <Container layout={null} fullWidth={true}>
-        {postsToShow.map((post: any) => (
-          <BlogPost key={post.id} post={post} />
-        ))}
-        {/*{showNext && <Pagination page={page} showNext={showNext} />}*/}
-      </Container>
-    </main>
+    // <main className="flex min-h-screen flex-col items-start justify-between p-24">
+    <Container layout={null} fullWidth={false}>
+      {postsToShow.map((post: any) => (
+        <BlogPost key={post.id} post={post} />
+      ))}
+      {/*{showNext && <Pagination page={page} showNext={showNext} />}*/}
+    </Container>
+    // </main>
   );
 }

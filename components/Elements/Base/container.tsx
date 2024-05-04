@@ -12,6 +12,7 @@ const Container = ({
   children,
   layout,
   fullWidth,
+  ...customMeta
 }: {
   children: ReactNode;
   layout: string | null;
@@ -21,6 +22,7 @@ const Container = ({
   const meta = {
     title: BLOG.title,
     type: 'website',
+    ...customMeta,
   };
   return (
     <div>
