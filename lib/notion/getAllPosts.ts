@@ -83,7 +83,12 @@ export async function getAllPosts({ includePages = false }) {
     const data = [];
     for (let i = 0; i < pageIds.length; i++) {
       const id = pageIds[i];
-      const properties: Properties = (await getPageProperties(id, block, schema, undefined));
+      const properties: Properties = await getPageProperties(
+        id,
+        block,
+        schema,
+        undefined,
+      );
 
       // Note: title がない場合は Name を入れて対応
       properties.title = properties.title || properties.Name;

@@ -3,7 +3,20 @@ import Container from '@/components/Elements/Base/container';
 import BlogPost from '@/components/Elements/Blog/blog-post';
 import { getAllPosts } from '@/lib/notion/getAllPosts';
 
-async function getPosts() {
+/**
+ * Retrieves the posts to be displayed on a page.
+ *
+ * @returns {Promise<{
+ *    page: number,
+ *    postsToShow: Array,
+ *    showNext: boolean
+ * }>} The retrieved posts information.
+ */
+async function getPosts(): Promise<{
+  page: number;
+  postsToShow: Array<any>;
+  showNext: boolean;
+}> {
   const posts = await getAllPosts({ includePages: false });
   const postsToShow = posts.slice(0, BLOG.postsPerPage);
   const totalPosts = posts.length;
@@ -15,6 +28,10 @@ async function getPosts() {
   };
 }
 
+/**
+ * Retrieves a list of posts and renders them on the Home page.
+ * @async
+ */
 export default async function Home() {
   const { page, postsToShow, showNext } = await getPosts();
 
