@@ -4,6 +4,16 @@ import BlogPost from '@/components/Elements/Blog/blog-post';
 import { getAllPosts } from '@/lib/notion/getAllPosts';
 
 /**
+ * The revalidate variable is used to indicate whether a particular operation should be revalidated.
+ * It represents a boolean value where:
+ * - true indicates that the operation should be revalidated
+ * - false indicates that the operation should not be revalidated
+ *
+ * @type {number}
+ */
+export const revalidate: number = 1;
+
+/**
  * Retrieves the posts to be displayed on a page.
  *
  * @returns {Promise<{

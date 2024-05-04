@@ -6,6 +6,16 @@ import { getAllPosts } from '@/lib/notion/getAllPosts';
 import { getPostBlocks } from '@/lib/notion/getPostBlocks';
 
 /**
+ * The revalidate variable is used to indicate whether a particular operation should be revalidated.
+ * It represents a boolean value where:
+ * - true indicates that the operation should be revalidated
+ * - false indicates that the operation should not be revalidated
+ *
+ * @type {boolean}
+ */
+export const revalidate: number = 1;
+
+/**
  * Generates static params for each post.
  *
  * @returns {Promise<string[]>} - An array of static params for each post.
