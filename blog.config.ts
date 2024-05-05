@@ -3,7 +3,7 @@ const BLOG = {
   author: 'hisasann',
   email: 'hisasann25@gmail.com',
   link: 'https://dialy.hisasann.dev/',
-  description: 'hisasannの日記です。',
+  description: 'これは日記です。',
   lang: 'ja-JP', // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES']
   appearance: 'auto', // ['light', 'dark', 'auto'],
   font: 'sans-serif', // ['sans-serif', 'serif']
