@@ -48,7 +48,7 @@ export default async function Home() {
 
   return (
     // <main className="flex min-h-screen flex-col items-start justify-between p-24">
-    <Container layout={null} fullWidth={false}>
+    <Container layout={'blog'} fullWidth={false}>
       {postsToShow.map((post: any) => (
         <BlogPost key={post.id} post={post} />
       ))}

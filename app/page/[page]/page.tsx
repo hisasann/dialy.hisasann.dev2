@@ -46,7 +46,7 @@ export default async function Page({ params }: { params: { page: number } }) {
   });
 
   return (
-    <Container layout={null} fullWidth={false}>
+    <Container layout={'blog'} fullWidth={false}>
       {postsToShow &&
         postsToShow.map((post) => <BlogPost key={post.id} post={post} />)}
       <Pagination page={page} showNext={showNext} />
