@@ -13,7 +13,7 @@ import { getPostBlocks } from '@/lib/notion/getPostBlocks';
  *
  * @type {boolean}
  */
-// export const revalidate: number = 1;
+export const revalidate: number = 1;
 
 type Params = {
   slug: string;

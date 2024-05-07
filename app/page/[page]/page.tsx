@@ -12,7 +12,7 @@ import { getAllPosts } from '@/lib/notion/getAllPosts';
  *
  * @type {boolean}
  */
-// export const revalidate: number = 1;
+export const revalidate: number = 1;
 
 /**
  * Retrieves the posts to be displayed on a page.
