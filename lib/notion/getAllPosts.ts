@@ -38,8 +38,10 @@ export async function getAllPosts({
 }) {
   let id = BLOG.notionPageId || '';
   const authToken = BLOG.notionAccessToken || undefined;
+  console.time('Notion API time');
   const api = new NotionAPI({ authToken });
   const response = await api.getPage(id);
+  console.timeEnd('Notion API time');
 
   id = idToUuid(id);
   const collection = Object.values(response.collection)[0]?.value;

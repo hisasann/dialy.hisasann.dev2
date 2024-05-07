@@ -12,7 +12,7 @@ import { getAllPosts } from '@/lib/notion/getAllPosts';
  *
  * @type {boolean}
  */
-export const revalidate: number = 1;
+// export const revalidate: number = 1;
 
 /**
  * Retrieves the posts to be displayed on a page.
@@ -23,34 +23,51 @@ export const revalidate: number = 1;
  *    showNext: boolean
  * }>} The retrieved posts information.
  */
-async function getPosts({ page }: { page: number | undefined }): Promise<{
+async function getPosts({ page }: { page: string }): Promise<{
   page: number;
   postsToShow: Array<any>;
   showNext: boolean;
 }> {
-  page = page === undefined ? 1 : page;
+  let _page = parseInt(page, 10);
+  _page = page === undefined ? 1 : _page;
   const posts = await getAllPosts({ includePages: false });
   const postsToShow = posts.slice(
-    BLOG.postsPerPage * (page - 1),
-    BLOG.postsPerPage * page,
+    BLOG.postsPerPage * (_page - 1),
+    BLOG.postsPerPage * _page,
   );
   const totalPosts = posts.length;
-  const showNext = page * BLOG.postsPerPage < totalPosts;
+  const showNext = _page * BLOG.postsPerPage < totalPosts;
   return {
-    page, // current page
+    page: _page, // current page
     postsToShow,
     showNext,
   };
 }
 
-export async function generateStaticParams(): Promise<string[]> {
-  const posts = await getAllPosts({ includePages: false });
-  const totalPosts = posts.length;
-  const totalPages = Math.ceil(totalPosts / BLOG.postsPerPage);
-  return Array.from({ length: totalPages - 1 }, (_, i) => '' + (i + 2));
-}
+type Params = {
+  page: string;
+};
 
-export default async function Page({ params }: { params: { page: number } }) {
+// export async function generateStaticParams(): Promise<Params[]> {
+//   const posts = await getAllPosts({ includePages: false });
+//
+//   if (!posts || posts.length === 0) {
+//     return [{ page: 'not-found' }];
+//   }
+//
+//   const totalPosts = posts.length;
+//   const totalPages = Math.ceil(totalPosts / BLOG.postsPerPage);
+//   return Array.from({ length: totalPages - 1 }, (_, i) => {
+//     return '' + (i + 2);
+//   }).map((page) => {
+//     return {
+//       page,
+//     };
+//   });
+// }
+
+export default async function Page({ params }: { params: Params }) {
+  console.log('Page params:', params);
   const { page, postsToShow, showNext } = await getPosts({
     page: params.page,
   });

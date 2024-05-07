@@ -13,17 +13,28 @@ import { getPostBlocks } from '@/lib/notion/getPostBlocks';
  *
  * @type {boolean}
  */
-export const revalidate: number = 1;
+// export const revalidate: number = 1;
+
+type Params = {
+  slug: string;
+};
 
 /**
  * Generates static params for each post.
  *
- * @returns {Promise<string[]>} - An array of static params for each post.
+ * @returns {Promise<Params[]>} - An array of static params for each post.
  */
-export async function generateStaticParams(): Promise<string[]> {
-  const posts = await getAllPosts({ includePages: true });
-  return posts.map((row: any) => `${BLOG.path}/${row.slug}`);
-}
+// export async function generateStaticParams(): Promise<Params[]> {
+//   const posts = await getAllPosts({ includePages: true });
+//
+//   if (!posts || posts.length === 0) {
+//     return [{ slug: 'not-found' }];
+//   }
+//
+//   return posts.map((row: any) => {
+//     return { slug: `${BLOG.path}/${row.slug}` };
+//   });
+// }
 
 /**
  * Retrieves a post by its slug.
@@ -50,11 +61,8 @@ async function getPost({
   return { post, blockMap, emailHash };
 }
 
-export default async function BlogPost({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default async function BlogPost({ params }: { params: Params }) {
+  console.log('BlogPost params:', params);
   const { post, blockMap, emailHash } = await getPost({
     slug: params.slug,
   });
