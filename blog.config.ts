@@ -14,7 +14,7 @@ const BLOG = {
   sortByDate: true, // sort by date or not (default is true)
   autoCollapsedNavBar: false, // The automatically collapsed navigation bar
   authors: [{ name: 'hisasann', url: 'https://hisasann.dev/' }],
-  ogImageGenerateURL: 'https://hisasann.dev/assets/images/hisasann_400x400.jpg', // The link to generate OG image, don't end with a slash
+  ogImageGenerateURL: 'https://dialy2.hisasann.dev/ogp1_400x400.png', // The link to generate OG image, don't end with a slash
   note: 'https://note.com/hisasann', // leave this empty unless you want to deploy Nobelium in a folder
   socialLink: 'https://twitter.com/hisasann',
   instagram: 'https://www.instagram.com/hisasann/',
